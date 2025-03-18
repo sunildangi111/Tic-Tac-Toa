@@ -1,6 +1,6 @@
-const cards = document.querySelectorAll('.card');
 const button = document.querySelector('#reset');
 const restart = document.querySelector('#restart');
+const grid = document.querySelector('.grid');
 let p = document.querySelectorAll('td');
 let count = 0;
 
@@ -15,6 +15,28 @@ let winning = [
 [2,4,6]
 ];
 let turn = 1;
+
+for(let i = 0; i < 9; i++){
+    let grid_cards = document.querySelector(".grid"); 
+
+    let outerDiv = document.createElement("div");
+    outerDiv.classList.add("outer");
+    outerDiv.innerHTML = `
+        <div class="dot"></div>
+        <div class="card">
+            <div class="ray"></div>
+            <div class="text"></div>
+            <div class="line topl"></div>
+            <div class="line leftl"></div>
+            <div class="line bottoml"></div>
+            <div class="line rightl"></div>
+        </div>
+    `;
+    
+    grid_cards.appendChild(outerDiv);
+}
+
+const cards = document.querySelectorAll('.card');
 
 cards.forEach(card => {
     card.addEventListener('click', function press() {
